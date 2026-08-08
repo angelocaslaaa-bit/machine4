@@ -6,6 +6,9 @@
 <body>
     <h1>Student CRUD System</h1>
     <input type="hidden" id="editIndex" value="-1">
+    <label>Student ID:</label>
+    <input type="text" id="studentId">
+    <br><br>
     <label>Student Name:</label>
     <input type="text" id="studentName">
     <br><br>
@@ -15,18 +18,32 @@
     <input type="button" onclick="saveStudent()" value="Save Student">
     <button onclick="clearForm()">Cancel</button>
     <hr>
+
+    <h2>Search Student</h2>
+    <label>Search by Name:</label>
+    <input type="text" id="searchName">
+    <input type="button" onclick="searchStudent()" value="Search">
+    <button onclick="displayStudents()">Show All</button>
+    <hr>
+
     <h2>Student Records</h2>
+    <button onclick="sortByName()">Sort by Name (A-Z)</button>
+    <br><br>
     <table border="1" cellpadding="10">
         <thead>
             <tr>
                 <th>Number</th>
+                <th>Student ID</th>
                 <th>Name</th>
                 <th>Course</th>
                 <th>Actions</th>
             </tr>
         </thead>
+
         <tbody id="studentTable"></tbody>
     </table>
+
+    <p id="totalStudents">Total Students: 0</p>
     <script>
         // Array used as temporary storage
         let students = [];
